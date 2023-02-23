@@ -26,6 +26,7 @@ import (
 	"os/signal"
 	"regexp"
 	"runtime"
+	"runtime/pprof"
 	"strings"
 	"time"
 
@@ -63,6 +64,7 @@ var (
 	disableCompression = flag.Bool("disable-compression", false, "")
 	disableKeepAlives  = flag.Bool("disable-keepalive", false, "")
 	disableRedirects   = flag.Bool("disable-redirects", false, "")
+	profile            = flag.Bool("profile", false, "")
 	proxyAddr          = flag.String("x", "", "")
 )
 
@@ -101,6 +103,7 @@ Options:
   -disable-redirects    Disable following of HTTP redirects
   -cpus                 Number of used cpu cores.
                         (default for current machine is %d cores)
+  -profile              Generate a pprof CPU profile.
 `
 
 func main() {
@@ -249,6 +252,16 @@ func main() {
 			w.Stop()
 		}()
 	}
+
+	if *profile {
+		if f, err := os.OpenFile("cpu.prof", os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666); err != nil {
+			errAndExit(err.Error())
+		} else {
+			pprof.StartCPUProfile(f)
+			defer pprof.StopCPUProfile()
+		}
+	}
+
 	w.Run()
 }
 
