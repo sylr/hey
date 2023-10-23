@@ -37,3 +37,7 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
+release:
+  github:
+    owner: sylr
+    name: hey
