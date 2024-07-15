@@ -40,6 +40,7 @@ Options:
   -d  HTTP request body.
   -D  HTTP request body from file. For example, /home/user/file.txt or ./file.txt.
   -T  Content-type, defaults to "text/html".
+  -U  User-Agent, defaults to version "hey/0.0.1".
   -a  Basic authentication, username:password.
   -x  HTTP Proxy address as host:port.
   -h2 Enable HTTP/2.
@@ -51,7 +52,8 @@ Options:
                         connections between different HTTP requests.
   -disable-redirects    Disable following of HTTP redirects
   -cpus                 Number of used cpu cores.
-                        (default for current machine is 8 cores)
+                        (default for current machine is %d cores)
+  -profile              Generate a pprof CPU profile (cpu.prof).
 ```
 
 Previously known as [github.com/rakyll/boom](https://github.com/rakyll/boom).

@@ -102,7 +102,7 @@ Options:
   -disable-redirects    Disable following of HTTP redirects
   -cpus                 Number of used cpu cores.
                         (default for current machine is %d cores)
-  -profile              Generate a pprof CPU profile.
+  -profile              Generate a pprof CPU profile (cpu.prof).
 `
 
 func main() {
