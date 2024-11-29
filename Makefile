@@ -1,10 +1,10 @@
 .PHONY: build test release
 
 build:
-	@goreleaser build --skip-validate --rm-dist
+	@goreleaser build --skip=validate --clean
 
 test:
 	go test ./...
 
 release:
-	@goreleaser release --rm-dist
+	@goreleaser release --clean
