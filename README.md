@@ -15,7 +15,7 @@ sylr/hey is a fork of the unmaintained https://github.com/rakyll/hey.
 
 hey runs provided number of requests in the provided concurrency level and prints stats.
 
-It also supports HTTP2 endpoints.
+It also supports HTTP2/HTTP3 endpoints.
 
 ```
 Usage: hey [options...] <url>
@@ -44,6 +44,7 @@ Options:
   -a  Basic authentication, username:password.
   -x  HTTP Proxy address as host:port.
   -h2 Enable HTTP/2.
+  -h3 Enable HTTP/3.
 
   -host	HTTP Host header.
 
