@@ -1,4 +1,4 @@
-FROM --platform=${BUILDPLATFORM} golang:1.20 as build
+FROM --platform=${BUILDPLATFORM} golang:1.24 as build
 
 # Create appuser.
 # See https://stackoverflow.com/a/55757473/12429735
@@ -38,6 +38,6 @@ LABEL org.opencontainers.image.ref.name="${PACKAGE}" \
 ARG TARGETOS
 ARG TARGETARCH
 
-COPY ./dist/hey_${TARGETOS}_${TARGETARCH}/hey
+COPY ./dist/hey_${TARGETOS}_${TARGETARCH}/hey /
 
 ENTRYPOINT ["/hey"]
