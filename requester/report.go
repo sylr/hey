@@ -131,7 +131,7 @@ func (r *report) print() {
 		log.Println("error:", err.Error())
 		return
 	}
-	r.printf(buf.String())
+	r.w.Write(buf.Bytes())
 
 	r.printf("\n")
 }
