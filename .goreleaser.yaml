@@ -41,7 +41,7 @@ builds:
   ldflags:
   - -s -w
 archives:
-- name_template: "{{ .ProjectName }}-v{{ .Version }}-{{ .Os }}-{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ else if .Amd64 }}v{{ .Amd64 }}{{ else if .Amd64 }}v{{ .Amd64 }}{{ end }}"
+- name_template: "{{ .ProjectName }}-v{{ .Version }}-{{ .Os }}-{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ else if .Arm64 }}{{ .Arm64 }}{{ else if .Amd64 }}{{ .Amd64 }}{{ end }}"
   formats:
   - binary
 checksum:
