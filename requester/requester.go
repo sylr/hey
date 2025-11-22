@@ -243,34 +243,33 @@ func (b *Work) runWorkers() {
 		ServerName:         b.Request.Host,
 	}
 
-	var rt http.RoundTripper
-	tr := &http.Transport{
-		TLSClientConfig:     tlsConfig,
-		MaxIdleConnsPerHost: min(b.C, maxIdleConn),
-		DisableCompression:  b.DisableCompression,
-		DisableKeepAlives:   b.DisableKeepAlives,
-		Proxy:               http.ProxyURL(b.ProxyAddr),
-	}
-
-	if b.H3 {
-		tlsConfig = http3.ConfigureTLSConfig(tlsConfig)
-		tr := &http3.Transport{
-			TLSClientConfig:    tlsConfig,
-			DisableCompression: b.DisableCompression,
-		}
-		rt = tr
-	} else if b.H2 {
-		http2.ConfigureTransport(tr)
-		rt = tr
-	} else {
-		tr.TLSNextProto = make(map[string]func(string, *tls.Conn) http.RoundTripper)
-		rt = tr
-	}
-	client := &http.Client{Transport: rt, Timeout: time.Duration(b.Timeout) * time.Second}
-
 	// Ignore the case where b.N % b.C != 0.
 	for i := 0; i < b.C; i++ {
 		go func() {
+			var rt http.RoundTripper
+			tr := &http.Transport{
+				TLSClientConfig:     tlsConfig,
+				MaxIdleConnsPerHost: min(b.C, maxIdleConn),
+				DisableCompression:  b.DisableCompression,
+				DisableKeepAlives:   b.DisableKeepAlives,
+				Proxy:               http.ProxyURL(b.ProxyAddr),
+			}
+
+			if b.H3 {
+				tlsConfig = http3.ConfigureTLSConfig(tlsConfig)
+				tr := &http3.Transport{
+					TLSClientConfig:    tlsConfig,
+					DisableCompression: b.DisableCompression,
+				}
+				rt = tr
+			} else if b.H2 {
+				http2.ConfigureTransport(tr)
+				rt = tr
+			} else {
+				tr.TLSNextProto = make(map[string]func(string, *tls.Conn) http.RoundTripper)
+				rt = tr
+			}
+			client := &http.Client{Transport: rt, Timeout: time.Duration(b.Timeout) * time.Second}
 			b.runWorker(client, b.N/b.C)
 			wg.Done()
 		}()
