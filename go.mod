@@ -5,7 +5,7 @@ go 1.24.0
 toolchain go1.25.4
 
 require (
-	github.com/quic-go/quic-go v0.57.0
+	github.com/quic-go/quic-go v0.57.1
 	golang.org/x/net v0.47.0
 )
 
