@@ -2,7 +2,7 @@ module github.com/sylr/hey
 
 go 1.24.0
 
-toolchain go1.25.4
+toolchain go1.25.5
 
 require (
 	github.com/quic-go/quic-go v0.57.1
