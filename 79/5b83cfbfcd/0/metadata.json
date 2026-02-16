@@ -1,0 +1,35 @@
+{
+  "cli_version": "0.4.4",
+  "checkpoint_id": "795b83cfbfcd",
+  "session_id": "18d88539-0e91-42a1-86d0-8d5f80e239b6",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-16T21:31:09.300335Z",
+  "branch": "go1.26",
+  "checkpoints_count": 1,
+  "files_touched": [
+    ".claude/settings.json",
+    ".claude/settings.local.json",
+    ".github/workflows/go.yaml",
+    ".github/workflows/tag.yaml",
+    "Dockerfile",
+    "go.mod"
+  ],
+  "agent": "Claude Code",
+  "token_usage": {
+    "input_tokens": 16,
+    "cache_creation_tokens": 23519,
+    "cache_read_tokens": 286300,
+    "output_tokens": 98,
+    "api_call_count": 12
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-16T21:31:09.273902Z",
+    "agent_lines": 0,
+    "human_added": 10,
+    "human_modified": 5,
+    "human_removed": 0,
+    "total_committed": 14,
+    "agent_percentage": 0
+  },
+  "transcript_path": ".claude/projects/-Users-sylvain-git-hey/18d88539-0e91-42a1-86d0-8d5f80e239b6.jsonl"
+}

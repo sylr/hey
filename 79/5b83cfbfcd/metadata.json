@@ -1,0 +1,31 @@
+{
+  "cli_version": "0.4.4",
+  "checkpoint_id": "795b83cfbfcd",
+  "strategy": "manual-commit",
+  "branch": "go1.26",
+  "checkpoints_count": 1,
+  "files_touched": [
+    ".claude/settings.json",
+    ".claude/settings.local.json",
+    ".github/workflows/go.yaml",
+    ".github/workflows/tag.yaml",
+    "Dockerfile",
+    "go.mod"
+  ],
+  "sessions": [
+    {
+      "metadata": "/79/5b83cfbfcd/0/metadata.json",
+      "transcript": "/79/5b83cfbfcd/0/full.jsonl",
+      "context": "/79/5b83cfbfcd/0/context.md",
+      "content_hash": "/79/5b83cfbfcd/0/content_hash.txt",
+      "prompt": "/79/5b83cfbfcd/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 16,
+    "cache_creation_tokens": 23519,
+    "cache_read_tokens": 286300,
+    "output_tokens": 98,
+    "api_call_count": 12
+  }
+}

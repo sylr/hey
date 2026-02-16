@@ -1,0 +1,43 @@
+Implement the following plan:
+
+# Upgrade Go to 1.26
+
+## Context
+
+Go 1.26.0 was released on Feb 10, 2026. The project currently uses Go 1.25.5 as its toolchain. This upgrades all Go version references to 1.26.0.
+
+## Changes
+
+### 1. `go.mod` (lines 3, 5)
+- `go 1.24.0` → `go 1.26.0`
+- `toolchain go1.25.5` → remove line (redundant when go directive matches latest)
+
+### 2. `Dockerfile` (line 1)
+- `golang:1.25` → `golang:1.26`
+
+### 3. `.github/workflows/go.yaml` (line 14)
+- `"1.25.5"` → `"1.26.0"`
+
+### 4. `.github/workflows/tag.yaml` (line 24)
+- `"1.25.5"` → `"1.26.0"`
+
+### 5. `.travis.yml`
+- Skip — legacy/unused Travis CI config (still references Go 1.13).
+
+### 6. Post-update
+- Run `go mod tidy` to update `go.sum` and ensure dependencies are compatible.
+
+## Verification
+- `go build ./...`
+- `go test ./...`
+
+
+If you need specific details from before exiting plan mode (like exact code snippets, error messages, or content you generated), read the full transcript at: /Users/sylvain/.REDACTED.jsonl
+
+---
+
+Unknown skill: commit
+
+---
+
+Upgrade dependencies while we're at it
