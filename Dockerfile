@@ -1,4 +1,4 @@
-FROM --platform=${BUILDPLATFORM} golang:1.25 as build
+FROM --platform=${BUILDPLATFORM} golang:1.26 as build
 
 # Create appuser.
 # See https://stackoverflow.com/a/55757473/12429735
